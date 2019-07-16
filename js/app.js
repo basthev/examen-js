@@ -23,70 +23,100 @@
     var punto = document.getElementById('punto');
     var igual = document.getElementById('igual');
     numero1.onclick = function(e){
-      if (pantalla.innerHTML == "0")  {
+      if (pantalla.innerHTML.length == 8) {
+      pantalla.innerHTML = pantalla.innerHTML;
+    }
+      else if (pantalla.innerHTML == "0")  {
         pantalla.innerHTML = "1";
       }else {
       pantalla.innerHTML = pantalla.innerHTML + "1";
       }
     };
   numero2.onclick = function(e){
-    if (pantalla.innerHTML == "0")  {
+    if (pantalla.innerHTML.length == 8) {
+    pantalla.innerHTML = pantalla.innerHTML;
+  }
+    else if (pantalla.innerHTML == "0")  {
       pantalla.innerHTML = "2";
     }else {
     pantalla.innerHTML = pantalla.innerHTML + "2";
     }
   };
   numero3.onclick = function(e){
-    if (pantalla.innerHTML == "0")  {
+    if (pantalla.innerHTML.length == 8) {
+    pantalla.innerHTML = pantalla.innerHTML;
+  }
+    else if (pantalla.innerHTML == "0")  {
       pantalla.innerHTML = "3";
     }else {
     pantalla.innerHTML = pantalla.innerHTML + "3";
     }
   };
   numero4.onclick = function(e){
-    if (pantalla.innerHTML == "0")  {
+    if (pantalla.innerHTML.length == 8) {
+    pantalla.innerHTML = pantalla.innerHTML;
+  }
+    else if (pantalla.innerHTML == "0")  {
       pantalla.innerHTML = "4";
     }else {
     pantalla.innerHTML = pantalla.innerHTML + "4";
     }
   };
   numero5.onclick = function(e){
-    if (pantalla.innerHTML == "0")  {
+    if (pantalla.innerHTML.length == 8) {
+    pantalla.innerHTML = pantalla.innerHTML;
+  }
+    else if (pantalla.innerHTML == "0")  {
       pantalla.innerHTML = "5";
     }else {
     pantalla.innerHTML = pantalla.innerHTML + "5";
     }
   };
   numero6.onclick = function(e){
-    if (pantalla.innerHTML == "0")  {
+    if (pantalla.innerHTML.length == 8) {
+    pantalla.innerHTML = pantalla.innerHTML;
+  }
+    else if (pantalla.innerHTML == "0")  {
       pantalla.innerHTML = "6";
     }else {
     pantalla.innerHTML = pantalla.innerHTML + "6";
     }
   };
   numero7.onclick = function(e){
-    if (pantalla.innerHTML == "0")  {
+    if (pantalla.innerHTML.length == 8) {
+    pantalla.innerHTML = pantalla.innerHTML;
+  }
+    else if (pantalla.innerHTML == "0")  {
       pantalla.innerHTML = "7";
     }else {
     pantalla.innerHTML = pantalla.innerHTML + "7";
     }
   };
   numero8.onclick = function(e){
-    if (pantalla.innerHTML == "0")  {
+    if (pantalla.innerHTML.length == 8) {
+    pantalla.innerHTML = pantalla.innerHTML;
+  }
+    else if (pantalla.innerHTML == "0")  {
       pantalla.innerHTML = "8";
     }else {
     pantalla.innerHTML = pantalla.innerHTML + "8";
     }
   };
   numero9.onclick = function(e){
-    if (pantalla.innerHTML == "0")  {
+    if (pantalla.innerHTML.length == 8) {
+    pantalla.innerHTML = pantalla.innerHTML;
+  }
+    else if (pantalla.innerHTML == "0")  {
       pantalla.innerHTML = "9";
     }else {
     pantalla.innerHTML = pantalla.innerHTML + "9";
     }
   };
   numero0.onclick = function(){
-  if (pantalla.innerHTML == "0")  {
+    if (pantalla.innerHTML.length == 8) {
+    pantalla.innerHTML = pantalla.innerHTML;
+  }
+    else if (pantalla.innerHTML == "0")  {
     pantalla.innerHTML = "0"
   }else {
   pantalla.innerHTML = pantalla.innerHTML + "0";
@@ -94,14 +124,69 @@
   };
   limpiar.onclick= function(e){
     pantalla.innerHTML = "0";
+    numeroa = 0;
+    numerob = 0;
+    operacion = "";
   };
   suma.onclick = function(e) {
     numeroa = pantalla.innerHTML;
     operacion = "+";
     clean();
   };
+  resta.onclick = function(e) {
+    nomeroa = pantalla.innerHTML;
+    operacion =("-")
+    clean();
+  };
+  multiplica.onclick =function(e) {
+    numeroa = pantalla.innerHTML;
+    operacion = "*"
+    clean();
+  };
+  division.onclick = function(e) {
+    numeroa = pantalla.innerHTML;
+    operacion = "/"
+    clean();
+  };
+  punto.onclick = function (e) {
+    if (pantalla.innerHTML.indexOf(".") == -1) {
+      pantalla.innerHTML = pantalla.innerHTML + ".";
+    }else {
+      pantalla = pantalla;
+    }
+  };
+  negativo.onclick = function (){
+    if (pantalla.innerHTML.indexOf("-") == -1 && pantalla.innerHTML !== "0") {
+      pantalla.innerHTML = "-" + pantalla.innerHTML;
+    }else {
+      pantalla.innerHTML = pantalla.innerHTML.replace("-", "");
+    }
+  };
   function clean() {
     pantalla.innerHTML = "";
   };
- }(),
-}
+  igual.onclick =function (e) {
+    numerob = pantalla.innerHTML;
+    resolver()
+  }
+  function resolver(){
+    var resultado = 0
+    switch (operacion) {
+      case "+":
+      resultado = parseFloat(numeroa) + parseFloat(numerob);
+        break;
+      case "-":
+      resultado = parseFloat(numeroa) - parseFloat(numerob);
+      break;
+      case "*":
+          resultado = parseFloat(numeroa) * parseFloat(numerob);
+      break;
+      case "/":
+        resultado = parseFloat(numeroa) / parseFloat(numerob);
+        break;
+      default:
+    }
+    pantalla.innerHTML = resultado
+  }
+  }(),
+ }
